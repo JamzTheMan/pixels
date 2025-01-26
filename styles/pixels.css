@@ -53,3 +53,12 @@
     color: white;
   }
 }
+
+.pixels-dice-icon {
+  background-image: url('../ui/pixels-logo-icon.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 1.3em;
+  height: 1.3em;
+}
