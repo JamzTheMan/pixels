@@ -1,3 +1,6 @@
+import PixelsConfiguration from "./apps/pixels-config.mjs";
+import PixelsManager from "./manager.mjs";
+
 /**
  * @typedef PixelsPendingRoll
  * @property {string} denomination  The die denomination.
@@ -198,4 +201,14 @@ function handleRolls(groups) {
     groups[denomination].results = results.slice(slice);
     if ( !groups[denomination].results.length ) delete groups[denomination];
   }
+}
+
+// Exporting this function so it can be used via macro: game.modules.get("pixels").api.openPixelsConfiguration();
+export function openPixelsConfiguration() {
+  new PixelsConfiguration().render(true);
+}
+
+// Exporting this function so it can be used via macro: game.modules.get("pixels").api.reconnectPixels();
+export async function reconnectPixels() {
+  return await PixelsManager.fromSetting().tryReconnect();
 }
